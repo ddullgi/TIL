@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤</title>
+    <style>
+      body {
+        height: 10000px;
+        background: linear-gradient(
+          150deg,
+          red,
+          orange,
+          yellow,
+          green,
+          indigo,
+          purple,
+          black
+        );
+      }
+      h1 {
+        color: white;
+      }
+      .progress {
+        position: fixed;
+        width: 100%;
+        height: 5px;
+        top: 0;
+        left: 0;
+        background-color: black;
+        z-index: 10;
+      }
+      .bar {
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        top: 0;
+        left: 0;
+        background-color: yellow;
+        z-index: 11;
+      }
+    </style>
+    <script>
+      let scrollTop = 0;
+      let bar;
+
+      window.onload = function () {
+        bar = document.getElementsByClassName("bar")[0];
+      };
+
+      window.addEventListener(
+        "scroll",
+        function (event) {
+          // 스크롤의 높이를 구한다
+          scrollTop = document.documentElement.scrollTop;
+          // console.log(scrollTop);
+
+          // 스크롤이 얼마나 진행됬는지 퍼센트
+          // window.outerHeight 실제 화면 높이
+          //  document.body.scrollHeight 총 스크롤 높이
+          let per =
+            (scrollTop / (document.body.scrollHeight - window.outerHeight)) *
+            100;
+          // console.log(per);
+
+          bar.style.width = per + "%";
+        },
+        false
+      );
+    </script>
+  </head>
+  <body>
+    <h1>스크롤</h1>
+    <div class="progress">
+      <span class="bar"></span>
+    </div>
+  </body>
+</html>
