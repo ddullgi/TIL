@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .pointNone {
+        pointer-events: none;
+      }
+
+      .selectNone {
+        user-select: none;
+      }
+    </style>
+
+    <button><h1>포인터 이벤트 Auto</h1></button>
+    <button class="pointNone"><h1>포인터 이벤트 None</h1></button>
+    <h1>유저 셀렉트 Auto</h1>
+    <h1 class="selectNone">유저 셀렉트 None</h1>
+
+    <br />
+    <input type="text" value="editable" />
+    <br />
+    <input type="text" value="non-editable" inert />
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<script src="./fx.js"></script>
+
+<script>
+  const add = (a, b) => a + b;
+
+  // const take = curry((limit, iter) => {
+  //   let res = [];
+  //   for (const a of iter) {
+  //     res.push(a);
+  //     if (res.length == limit) return res;
+  //   }
+  //   return res;
+  // });
+</script>
+
+<script>
+  console.time("");
+  go(range(10000000), take(5), reduce(add), console.log);
+  console.timeEnd("");
+
+  console.time("");
+  go(L.range(Infinity), take(5), reduce(add), console.log);
+  console.timeEnd("");
+</script>
+
+<script>
+  go(
+    range(1000000),
+    map((n) => n + 10),
+    filter((n) => n % 2),
+    take(2),
+    console.log
+  );
+</script>
+
+## L.range, L.map, L.filter, take, reduce 중첩 사용
+
+<script>
+  go(
+    L.range(10),
+    L.map((n) => n + 10),
+    L.filter((n) => n % 2),
+    take(2),
+    console.log
+  );
+</script>
